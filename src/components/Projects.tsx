@@ -1,12 +1,15 @@
 import React from 'react';
 import type { Project } from '../types';
 
+import project1 from '../assets/projects/project1.png';
+
+
 const projectsData: Project[] = [
   {
-    title: 'Qemer Event Registration',
-    description: 'A streamlined and user-friendly event registration platform. Built with a modern frontend stack to ensure a seamless signup experience for attendees.',
-    tags: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Vercel'],
-    imageUrl: 'https://picsum.photos/seed/project4/500/300',
+    title: 'Qemer Student Registration',
+    description: 'A streamlined and user-friendly student registration platform. Built with a modern frontend stack to ensure a seamless course booking and registration of students.',
+    tags: ['React', 'Node.js', 'JavaScript', 'Vercel'],
+    imageUrl: project1,
     liveUrl: 'https://qemer-registration-frontend-mquefed79-blen-bizuayehus-projects.vercel.app/',
     githubUrl: 'https://github.com/BlenBizuayehu/qemer_registration_frontend',
   },

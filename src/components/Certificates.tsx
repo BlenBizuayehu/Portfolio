@@ -1,31 +1,28 @@
 import React from 'react';
 import type { Achievement } from '../types';
 
+import cert1 from '../assets/certificates/cert1.jpg';
+import cert2 from '../assets/certificates/cert2.jpg';
+import cert3 from '../assets/certificates/cert3.png';
+
+
+
 const achievementsData: Achievement[] = [
   {
+    title: 'Introduction to Coding',
+    issuer: 'SheCodes',
+    imageUrl: cert1
+    },
+  {
     title: 'MERN Stack Development',
-    issuer: 'Coursera',
-    imageUrl: 'https://picsum.photos/seed/cert1/500/300',
-    verifyUrl: '#',
+    issuer: 'Qemer Software Technologies PLC',
+    imageUrl: cert2
   },
   {
-    title: 'Advanced TypeScript',
-    issuer: 'Udemy',
-    imageUrl: 'https://picsum.photos/seed/cert2/500/300',
-    verifyUrl: '#',
-  },
-  {
-    title: 'GraphQL Specialist',
-    issuer: 'freeCodeCamp',
-    imageUrl: 'https://picsum.photos/seed/cert3/500/300',
-    verifyUrl: '#',
-  },
-  {
-    title: 'AWS Certified Cloud Practitioner',
-    issuer: 'Amazon Web Services',
-    imageUrl: 'https://picsum.photos/seed/cert4/500/300',
-    verifyUrl: '#',
-  },
+    title: 'Fundamentlas of AI',
+    issuer: 'Udacity',
+    imageUrl: cert3
+  }
 ];
 
 const SectionWrapper: React.FC<{ id: string; title: string; children: React.ReactNode }> = ({ id, title, children }) => (
@@ -49,14 +46,7 @@ const AchievementCard: React.FC<{ achievement: Achievement }> = ({ achievement }
       <div className="p-6">
         <h3 className="text-xl font-bold mb-2 text-text-primary">{achievement.title}</h3>
         <p className="text-text-secondary mb-4">Issued by: {achievement.issuer}</p>
-        <a 
-          href={achievement.verifyUrl} 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="inline-block bg-primary/10 text-primary text-sm font-semibold px-4 py-2 rounded-full hover:bg-primary hover:text-white transition-colors duration-300"
-        >
-          Verify
-        </a>
+       
       </div>
     </div>
   );
