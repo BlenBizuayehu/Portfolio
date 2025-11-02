@@ -1,6 +1,6 @@
 import React from 'react';
 
-import profile1 from "../../assets/profile1.jpg"; // adjust relative path
+import profile1 from "../assets/profile1.JPG"; // adjust relative path
 
 
 const SectionWrapper: React.FC<{ id: string; title: string; children: React.ReactNode }> = ({ id, title, children }) => (
