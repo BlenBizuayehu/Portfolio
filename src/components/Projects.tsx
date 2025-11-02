@@ -2,6 +2,8 @@ import React from 'react';
 import type { Project } from '../types';
 
 import project1 from '../assets/projects/project1.png';
+import project2 from '../assets/projects/project2.png';
+import project3 from '../assets/projects/project3.png';
 
 
 const projectsData: Project[] = [
@@ -17,26 +19,18 @@ const projectsData: Project[] = [
     title: 'E-Commerce Platform',
     description: 'A full-featured e-commerce site with product listings, user authentication, a shopping cart, and a Stripe-integrated checkout process.',
     tags: ['React', 'Node.js', 'Express', 'MongoDB', 'Redux'],
-    imageUrl: 'https://picsum.photos/seed/project1/500/300',
-    liveUrl: '#',
-    githubUrl: '#',
+    imageUrl: project2,
+    liveUrl: 'https://vercel.com/blen-bizuayehus-projects/inventory-management',
+    githubUrl: 'https://github.com/BlenBizuayehu/Inventory-Management',
   },
   {
     title: 'Real-Time Chat Application',
     description: 'A web-based chat app using Socket.IO for instant messaging, user presence indicators, and private chat rooms.',
     tags: ['React', 'Node.js', 'Socket.IO', 'JWT'],
-    imageUrl: 'https://picsum.photos/seed/project2/500/300',
-    liveUrl: '#',
-    githubUrl: '#',
-  },
-  {
-    title: 'Project Management Dashboard',
-    description: 'A collaborative dashboard for teams to manage tasks, track project progress, and communicate effectively. Features drag-and-drop functionality.',
-    tags: ['React', 'TypeScript', 'Firebase', 'Tailwind CSS'],
-    imageUrl: 'https://picsum.photos/seed/project3/500/300',
-    liveUrl: '#',
-    githubUrl: '#',
-  },
+    imageUrl: project3,
+    liveUrl: 'https://hotel-management-system-4ru462kkz-blen-bizuayehus-projects.vercel.app/',
+    githubUrl: 'https://github.com/BlenBizuayehu/HotelManagementSystem',
+  }
 ];
 
 const SectionWrapper: React.FC<{ id: string; title: string; children: React.ReactNode }> = ({ id, title, children }) => (
