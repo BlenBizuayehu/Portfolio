@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Project } from '../types';
 
-import project1 from '../assets/projects/project1.png';
+import project1 from '../assets/profile1.JPG';
 import project2 from '../assets/projects/project2.png';
 import project3 from '../assets/projects/project3.png';
 
