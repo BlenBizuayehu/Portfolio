@@ -19,5 +19,4 @@ export interface Achievement {
   title: string;
   issuer: string;
   imageUrl: string;
-  verifyUrl: string;
 }
