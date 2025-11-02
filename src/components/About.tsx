@@ -1,5 +1,8 @@
 import React from 'react';
 
+import profile1 from "../../assets/profile1.jpg"; // adjust relative path
+
+
 const SectionWrapper: React.FC<{ id: string; title: string; children: React.ReactNode }> = ({ id, title, children }) => (
   <section id={id} className="py-20 md:py-28">
     <div className="text-center mb-12">
@@ -19,7 +22,7 @@ const About: React.FC = () => {
         <div className="md:col-span-2 animate-slide-in-left">
           <div className="relative">
             <img 
-              src="C:\Users\hp\Downloads\portfolio\src\assets\profile1.JPG" 
+              src={profile1}
               alt="Profile" 
               className="rounded-full w-64 h-64 md:w-80 md:h-80 mx-auto object-cover border-4 border-background-secondary shadow-2xl shadow-black/50" 
             />
