@@ -19,7 +19,7 @@ const About: React.FC = () => {
         <div className="md:col-span-2 animate-slide-in-left">
           <div className="relative">
             <img 
-              src="https://picsum.photos/seed/student/400/400" 
+              src="../assets/profile.JPG" 
               alt="Profile" 
               className="rounded-full w-64 h-64 md:w-80 md:h-80 mx-auto object-cover border-4 border-background-secondary shadow-2xl shadow-black/50" 
             />
