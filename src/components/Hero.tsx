@@ -26,7 +26,7 @@ const Hero: React.FC = () => {
           )}
         </h1>
         <p className="text-lg md:text-2xl text-text-secondary mb-10 max-w-3xl mx-auto">
-          A 5th-year Software Engineering student specializing in creating modern, responsive web applications with the MERN stack.
+          A Software Engineer specializing in creating modern, responsive web applications with the MERN stack.
         </p>
         <div className="flex justify-center space-x-4">
           <a
