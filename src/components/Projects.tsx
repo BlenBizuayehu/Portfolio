@@ -22,14 +22,6 @@ const projectsData: Project[] = [
     imageUrl: project2,
     liveUrl: 'https://vercel.com/blen-bizuayehus-projects/inventory-management',
     githubUrl: 'https://github.com/BlenBizuayehu/Inventory-Management',
-  },
-  {
-    title: 'Elysian Hotel Management System',
-    description: 'A web-based chat app using Socket.IO for instant messaging, user presence indicators, and private chat rooms.',
-    tags: ['React', 'Next.js', 'TypeScript', 'JWT'],
-    imageUrl: project3,
-    liveUrl: 'https://hotel-management-system-4ru462kkz-blen-bizuayehus-projects.vercel.app/',
-    githubUrl: 'https://github.com/BlenBizuayehu/HotelManagementSystem',
   }
 ];
 
