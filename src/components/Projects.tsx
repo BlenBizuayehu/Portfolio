@@ -20,7 +20,7 @@ const projectsData: Project[] = [
     description: 'A full-featured e-commerce site with product listings, user authentication, a shopping cart, and a Stripe-integrated checkout process.',
     tags: ['React', 'Node.js', 'Express', 'MongoDB', 'JavaScript'],
     imageUrl: project2,
-    liveUrl: 'https://vercel.com/blen-bizuayehus-projects/inventory-management',
+    liveUrl: 'https://inventory-management-ten-green.vercel.app/',
     githubUrl: 'https://github.com/BlenBizuayehu/Inventory-Management',
   }
 ];
