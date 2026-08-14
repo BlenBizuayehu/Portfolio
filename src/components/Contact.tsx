@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FORMSPREE_ENDPOINT } from '../config';
 
 const SectionWrapper: React.FC<{ id: string; title: string; children: React.ReactNode }> = ({ id, title, children }) => (
   <section id={id} className="py-20 md:py-28">
@@ -11,18 +12,42 @@ const SectionWrapper: React.FC<{ id: string; title: string; children: React.Reac
   </section>
 );
 
+type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
+
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [status, setStatus] = useState<FormStatus>('idle');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    if (status === 'success' || status === 'error') {
+      setStatus('idle');
+    }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically handle form submission, e.g., send to an API
-    alert('Thank you for your message!');
-    setFormData({ name: '', email: '', message: '' });
+    setStatus('submitting');
+
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Submission failed');
+      }
+
+      setFormData({ name: '', email: '', message: '' });
+      setStatus('success');
+    } catch {
+      setStatus('error');
+    }
   };
 
   return (
@@ -40,7 +65,8 @@ const Contact: React.FC = () => {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full bg-background border border-gray-700 rounded-lg py-3 px-4 text-text-primary focus:outline-none focus:border-primary transition-all"
+              disabled={status === 'submitting'}
+              className="w-full bg-background border border-gray-700 rounded-lg py-3 px-4 text-text-primary focus:outline-none focus:border-primary transition-all disabled:opacity-60"
             />
             <input
               type="email"
@@ -49,7 +75,8 @@ const Contact: React.FC = () => {
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full bg-background border border-gray-700 rounded-lg py-3 px-4 text-text-primary focus:outline-none focus:border-primary transition-all"
+              disabled={status === 'submitting'}
+              className="w-full bg-background border border-gray-700 rounded-lg py-3 px-4 text-text-primary focus:outline-none focus:border-primary transition-all disabled:opacity-60"
             />
           </div>
           <textarea
@@ -59,14 +86,26 @@ const Contact: React.FC = () => {
             value={formData.message}
             onChange={handleChange}
             required
-            className="w-full bg-background border border-gray-700 rounded-lg py-3 px-4 text-text-primary focus:outline-none focus:border-primary transition-all"
+            disabled={status === 'submitting'}
+            className="w-full bg-background border border-gray-700 rounded-lg py-3 px-4 text-text-primary focus:outline-none focus:border-primary transition-all disabled:opacity-60"
           />
+          {status === 'success' && (
+            <p className="text-center text-green-500 font-medium">
+              Thank you for your message! I'll get back to you soon.
+            </p>
+          )}
+          {status === 'error' && (
+            <p className="text-center text-red-500 font-medium">
+              Something went wrong. Please try again or email me directly.
+            </p>
+          )}
           <div className="text-center">
             <button
               type="submit"
-              className="bg-primary text-white font-bold py-3 px-10 rounded-full transition-all duration-300 shadow-[0_4px_14px_0_rgba(59,130,246,0.39)] hover:shadow-[0_6px_20px_0_rgba(59,130,246,0.23)] hover:-translate-y-1"
+              disabled={status === 'submitting'}
+              className="bg-primary text-white font-bold py-3 px-10 rounded-full transition-all duration-300 shadow-[0_4px_14px_0_rgba(59,130,246,0.39)] hover:shadow-[0_6px_20px_0_rgba(59,130,246,0.23)] hover:-translate-y-1 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0"
             >
-              Send Message
+              {status === 'submitting' ? 'Sending...' : 'Send Message'}
             </button>
           </div>
         </form>
